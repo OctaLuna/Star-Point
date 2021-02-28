@@ -21,6 +21,9 @@ public class PlayerController : MonoBehaviour
     Animator Animator;
     SpriteRenderer SpriteRenderer;
 
+    //TRANSCION DE ESCENAS 
+    //Esto es para ver si ya se creo al player en otra escena
+    public static bool playerCreated;
 
 
     // Start is called before the first frame update
@@ -32,6 +35,18 @@ public class PlayerController : MonoBehaviour
         Animator = GetComponent<Animator>();
         //Estamos declarando el SpriteRenderer del player
         SpriteRenderer = GetComponent<SpriteRenderer>();
+
+        //Esto pasara si no se a creado a un segundo player en la transcion
+        if(!playerCreated){
+            //esto e spara crearlo 
+            playerCreated = true;
+            //esto es para que en la transcion no se destruya el player
+            DontDestroyOnLoad(this.transform.gameObject);
+        }
+        //esto es cuando hay mas de un player se elimina uno
+        else{
+            Destroy(gameObject);
+        }
 
     }
 
