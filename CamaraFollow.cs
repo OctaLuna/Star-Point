@@ -8,11 +8,11 @@ public class CamaraFollow : MonoBehaviour
     //SEGUIMIENTO DE LA CAMARA AL PLAYER
     //Estamos haciendo referencia al player
     [SerializeField]
-    private GameObject followTarget;
+    public GameObject followTarget;
     [SerializeField]
-    private Vector3 targetPosition;
+    public Vector3 targetPosition;
     [SerializeField]
-    private float camaraSpeed = 4f;
+    public float camaraSpeed = 4f;
 
 
     public static bool CamaraCreated;
